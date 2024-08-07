@@ -3,9 +3,9 @@ import java.util.Arrays;
 public class StudentGradeMain{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
-	
+		StudentGradeFunction grade = new StudentGradeFunction();
 	int[][] studentGrade;
-
+	
 
 	System.out.println("WELCOME TO LAGBAJA SCHOOL STUDENT GRADE CALCULATOR!!!");
 	System.out.println("How many students do you have?");
@@ -30,8 +30,12 @@ public class StudentGradeMain{
 	}
 	
 			
-
-
+	double[] total = grade.getTotal(studentGrade);
+	System.out.println(Arrays.toString(total));
+	double[] average = grade.getAverage(studentGrade);
+	System.out.println(Arrays.toString(average));
+	int[] position = grade.getPosition(total);
+	System.out.println(Arrays.toString(position));
 
 			for(int row = 0; row < 1; row++){
 				for(int column = 0; column < studentGrade[row].length; column++)
@@ -65,16 +69,16 @@ public class StudentGradeMain{
 			int rowCount2 = 1;
 			for(int row = 0; row < studentGrade.length; row++){
 			System.out.printf("Student %d",rowCount2);
-				int averageCount = 1;
-				int total = 0;
+				int averageCount = 0;
+				//int total = 0;
 				for(int column = 0; column < studentGrade[row].length; column++){
-					total += studentGrade[row][column];
+					//total += studentGrade[row][column];
 				
 					System.out.printf("%10d",studentGrade[row][column]);
 				averageCount++;
 				}
-				double average = total / (averageCount-1);
-				System.out.printf("%10d%10.2f", total, average);
+				//double average = total / averageCount;
+				System.out.printf("%10.0f%10.2f", total[row], average[row]);
 			rowCount2++;
 			System.out.println();
 			}
