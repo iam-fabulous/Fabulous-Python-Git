@@ -17,7 +17,7 @@ public class Bank{
 		System.out.printf("%30s%n", "New Account Details!!!");
 		System.out.println("=============================================");
 		System.out.printf("%s%10s%n", "Account_name: ", account.getName());
-		System.out.printf("%s%10s%n", "Account_number: ", accountNumber());
+		System.out.printf("%s%10s%n", "Account_number: ",account.getAccountNumber());
 		System.out.printf("%s%10s%n%n","balance: ", account.getBalance(pin));
 		System.out.println("=============================================");
 		System.out.printf("%10s%n", "your account has been created successfully!!!");
@@ -35,15 +35,16 @@ public class Bank{
 	public void withdraw(int accountNumber, double amount,String pin){
 		for(BankAccount account: accounts){
 			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)) account.withdraw(amount);
-		return account.getBalance(pin);
 		}
 	}
 
 	public double getBalance(int accountNumber,String pin){
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == accountNumber) account.getBalance(pin);
-		return account.getBalance(pin);
+			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)){ 
+				return account.getBalance(pin);
+			}
 		}
+	return 0.0;
 	}
 	
 	public void transfer(int senderAccountNumber, int receiverAccountNumber, double amount, String pin){
@@ -54,8 +55,14 @@ public class Bank{
 	}
 	private int generateAccountNumber(){
 		Random generate = new Random();
-		int accountNumber = generate.nextInt();
+		int accountNumber = generate.nextInt(100);
 	return accountNumber;
+	}
+
+	public void changePin(int accountNumber, String oldPin, String newPin){
+		for(BankAccount account: accounts){
+			if(account.getAccountNumber() == accountNumber && account.getPin().equals(oldPin)) account.setPin(newPin);
+		}
 	}
 
 

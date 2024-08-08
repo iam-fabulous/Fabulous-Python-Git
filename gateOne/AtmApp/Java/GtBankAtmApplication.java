@@ -75,10 +75,10 @@ public class GtBankAtmApplication{
 			case 2:
 				System.out.println("======================================");
 				System.out.print("Enter Account number: ");
-				int acctNumber = input.nextInt();
+				int acctNumberDeposit = input.nextInt();
 				System.out.print("Enter Deposit amount: ");
-				double amount = input.nextInt();
-				bank.deposit(acctNumber, amount);
+				double amountDeposit = input.nextInt();
+				bank.deposit(acctNumberDeposit, amountDeposit);
 				System.out.println("======================================");
 				System.out.println("Amount deposited successfully!!!");
 				System.out.println("======================================");
@@ -87,14 +87,14 @@ public class GtBankAtmApplication{
 			case 3:
 				System.out.println("======================================");
 				System.out.print("Enter Account number: ");
-				int acctNumber = input.nextInt();
+				int acctNumberWithdraw = input.nextInt();
 				System.out.print("Enter amount to withdraw: ");
-				double amount = input.nextInt();
+				double amountWithdraw = input.nextInt();
 				System.out.print("Enter your pin: ");
 				String withdrawPin = input.next();
-				bank.withdraw(acctNumber, amount, pin);
+				bank.withdraw(acctNumberWithdraw, amountWithdraw, withdrawPin);
 				System.out.println("======================================");
-				System.out.printf("#%5.2f%s%n", amount, " withdrawn successfully!!!");
+				System.out.printf("$%5.2f%s%n", amountWithdraw, " withdrawn successfully!!!");
 				System.out.println("======================================");
 				newMain();
 
@@ -102,12 +102,12 @@ public class GtBankAtmApplication{
 			case 4:
 				System.out.println("======================================");
 				System.out.print("Enter Account number: ");
-				int acctNumber = input.nextInt();
+				int acctNumberBalance = input.nextInt();
 				System.out.print("Enter your pin: ");
-				String withdrawPin = input.next();
-				double balance = bank.getBalance(acctNumber, withdrawPin);
+				String withdrawPinBalance = input.next();
+				double balance = bank.getBalance(acctNumberBalance, withdrawPinBalance);
 				System.out.println("======================================");
-				System.out.printf("%s#%5.2f%n", "your balance is: ", balance,);
+				System.out.printf("%s$%5.2f%n", "your balance is: ", balance);
 				System.out.println("======================================");
 				newMain();
 
@@ -118,14 +118,37 @@ public class GtBankAtmApplication{
 				int senderAcctNumber = input.nextInt();
 				System.out.print("Enter Receiver_Account number: ");
 				int receiverAcctNumber = input.nextInt();
+				System.out.print("Enter Amount to transfer: ");
+				int transferAmount = input.nextInt();
 				System.out.print("Enter your pin: ");
 				String transferPin = input.next();
-				bank.transfer(senderAcctNumber, receiverAcctNumber, transferPin);
+				bank.transfer(senderAcctNumber, receiverAcctNumber,transferAmount, transferPin);
 				System.out.println("======================================");
-				System.out.printf("%s#%5.2f%n", "your balance is: ", balance,);
+				System.out.printf("#%5.2f%s%n",transferAmount, "transfered Successfully!!! ");
 				System.out.println("======================================");
 				newMain();
 			break;
+			case 6:
+				System.out.println("======================================");
+				System.out.print("Enter Account number: ");
+				int accountNumber = input.nextInt();
+				System.out.print("Enter Old Pin: ");
+				String oldPin = input.next();
+				System.out.print("Enter New Pin: ");
+				String newPin = input.next();
+				bank.changePin(accountNumber, oldPin, newPin);
+				System.out.println("======================================");
+				System.out.printf("%s#%5.2f%n", "Pin Successfully changed to: ", newPin);
+				System.out.println("======================================");
+				newMain();
+
+			break;
+			case 99:
+				System.out.print("Are you sure want to Exit?...Enter 1 for 'yes' or 2 for 'no'");
+				String check = input.next();
+					if(check == "1")transaction = 99;
+					else newMain();
+				
 			default:
 				newMain();
 	
