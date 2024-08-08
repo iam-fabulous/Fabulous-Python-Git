@@ -1,8 +1,9 @@
+import java.util.Arrays;
 public class StudentGradeFunction{
 
 
-	public static double[] getTotal(int[][] array){
-		double[] subjectTotal = new double[array.length];
+	public static int[] getTotal(int[][] array){
+		int[] subjectTotal = new int[array.length];
 		for(int row = 0; row < subjectTotal.length; row++){
 			for(int column = 0; column < array[row].length; column++){
 				subjectTotal[row] += array[row][column];

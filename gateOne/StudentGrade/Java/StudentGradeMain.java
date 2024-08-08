@@ -30,7 +30,7 @@ public class StudentGradeMain{
 	}
 	
 			
-	double[] total = grade.getTotal(studentGrade);
+	int[] total = grade.getTotal(studentGrade);
 	System.out.println(Arrays.toString(total));
 	double[] average = grade.getAverage(studentGrade);
 	System.out.println(Arrays.toString(average));
@@ -39,7 +39,7 @@ public class StudentGradeMain{
 
 			for(int row = 0; row < 1; row++){
 				for(int column = 0; column < studentGrade[row].length; column++)
-				System.out.printf("%s","====================");
+				System.out.printf("%s","==============================");
 				
 			}
 			System.out.println();
@@ -60,7 +60,7 @@ public class StudentGradeMain{
 
 			for(int row = 0; row < 1; row++){
 				for(int column = 0; column < studentGrade[row].length; column++)
-				System.out.printf("%s","====================");
+				System.out.printf("%s","==============================");
 				
 			}
 			System.out.println();
@@ -78,7 +78,7 @@ public class StudentGradeMain{
 				averageCount++;
 				}
 				//double average = total / averageCount;
-				System.out.printf("%10.0f%10.2f", total[row], average[row]);
+				System.out.printf("%10d%10.2f%10d", total[row], average[row], position[row]);
 			rowCount2++;
 			System.out.println();
 			}
