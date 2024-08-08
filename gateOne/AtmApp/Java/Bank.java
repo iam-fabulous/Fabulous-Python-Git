@@ -17,6 +17,7 @@ public class Bank{
 		System.out.printf("%30s%n", "New Account Details!!!");
 		System.out.println("=============================================");
 		System.out.printf("%s%10s%n", "Account_name: ", account.getName());
+		System.out.printf("%s%10s%n", "Account_number: ", accountNumber());
 		System.out.printf("%s%10s%n%n","balance: ", account.getBalance(pin));
 		System.out.println("=============================================");
 		System.out.printf("%10s%n", "your account has been created successfully!!!");
@@ -34,12 +35,14 @@ public class Bank{
 	public void withdraw(int accountNumber, double amount,String pin){
 		for(BankAccount account: accounts){
 			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)) account.withdraw(amount);
+		return account.getBalance(pin);
 		}
 	}
 
-	public void getBalance(int accountNumber,String pin){
+	public double getBalance(int accountNumber,String pin){
 		for(BankAccount account: accounts){
 			if(account.getAccountNumber() == accountNumber) account.getBalance(pin);
+		return account.getBalance(pin);
 		}
 	}
 	

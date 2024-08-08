@@ -23,8 +23,8 @@ public class BankAccount{
 		return accountNumber;
 	}
 	
-	public void setAccountNumber(){
-		return accountNumber;
+	public void setAccountNumber(int accountNumber){
+		this.accountNumber = accountNumber;
 	}
 
 	public void setPin(String pin){
@@ -46,7 +46,7 @@ public class BankAccount{
 		return 0.0;
 	}
 
-	public double withdraw( double withdrawAmount){
+	public void withdraw( double withdrawAmount){
 		if(withdrawAmount < balance){
 		balance -= withdrawAmount;
 		}

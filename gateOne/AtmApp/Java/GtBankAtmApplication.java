@@ -28,7 +28,6 @@ public class GtBankAtmApplication{
 	while(transaction != 99){
 		switch(transaction){
 			case 1: 
-			
 				System.out.print("Enter your First_name:  ");
 				String firstName = input.next();
 				System.out.print("Enter your Last_name:  ");
@@ -51,16 +50,16 @@ public class GtBankAtmApplication{
 							case "1":
 								System.out.println("======================================");
 								System.out.print("Enter Account number: ");
-								int accNumber = input.nextInt();
-								System.out.print("Enter Deposit amount: ");
 								int acctNumber = input.nextInt();
+								System.out.print("Enter Deposit amount: ");
+								double amount = input.nextInt();
 								bank.deposit(acctNumber, amount);
 								System.out.println("======================================");
 								System.out.println("Amount deposited successfully!!!");
 								System.out.println("======================================");
 								newMain();
 								break;
-							deafault:
+							default:
 								newMain();
 						}//close deposit switch						
 			
@@ -69,10 +68,66 @@ public class GtBankAtmApplication{
 						System.out.println("Invalid Input! must be four digits only!!!");
 						System.out.print("Enter a four digit Pin:  ");
             					
-            				}//else
+            				}//close the pin else
 				pin = input.next();
 				}//second while_loop
-				newMain();	
+			break;
+			case 2:
+				System.out.println("======================================");
+				System.out.print("Enter Account number: ");
+				int acctNumber = input.nextInt();
+				System.out.print("Enter Deposit amount: ");
+				double amount = input.nextInt();
+				bank.deposit(acctNumber, amount);
+				System.out.println("======================================");
+				System.out.println("Amount deposited successfully!!!");
+				System.out.println("======================================");
+				newMain();
+			break;
+			case 3:
+				System.out.println("======================================");
+				System.out.print("Enter Account number: ");
+				int acctNumber = input.nextInt();
+				System.out.print("Enter amount to withdraw: ");
+				double amount = input.nextInt();
+				System.out.print("Enter your pin: ");
+				String withdrawPin = input.next();
+				bank.withdraw(acctNumber, amount, pin);
+				System.out.println("======================================");
+				System.out.printf("#%5.2f%s%n", amount, " withdrawn successfully!!!");
+				System.out.println("======================================");
+				newMain();
+
+			break;
+			case 4:
+				System.out.println("======================================");
+				System.out.print("Enter Account number: ");
+				int acctNumber = input.nextInt();
+				System.out.print("Enter your pin: ");
+				String withdrawPin = input.next();
+				double balance = bank.getBalance(acctNumber, withdrawPin);
+				System.out.println("======================================");
+				System.out.printf("%s#%5.2f%n", "your balance is: ", balance,);
+				System.out.println("======================================");
+				newMain();
+
+			break;
+			case 5:
+				System.out.println("======================================");
+				System.out.print("Enter Sender_Account number: ");
+				int senderAcctNumber = input.nextInt();
+				System.out.print("Enter Receiver_Account number: ");
+				int receiverAcctNumber = input.nextInt();
+				System.out.print("Enter your pin: ");
+				String transferPin = input.next();
+				bank.transfer(senderAcctNumber, receiverAcctNumber, transferPin);
+				System.out.println("======================================");
+				System.out.printf("%s#%5.2f%n", "your balance is: ", balance,);
+				System.out.println("======================================");
+				newMain();
+			break;
+			default:
+				newMain();
 	
 
 
