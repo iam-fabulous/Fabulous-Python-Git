@@ -18,7 +18,7 @@ public class Bank{
 		System.out.println("=============================================");
 		System.out.printf("%s%10s%n", "Account_name: ", account.getName());
 		System.out.printf("%s%10s%n", "Account_number: ",account.getAccountNumber());
-		System.out.printf("%s%10s%n%n","balance: ", account.getBalance(pin));
+		System.out.printf("%s%10s%n%n","balance: ", account.getBalance());
 		System.out.println("=============================================");
 		System.out.printf("%10s%n", "your account has been created successfully!!!");
 		System.out.printf("%10s%n", "Thanks for choosing Guarantee Trust Bank!");
@@ -37,14 +37,18 @@ public class Bank{
 			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)) account.withdraw(amount);
 		}
 	}
+		
 
-	public double getBalance(int accountNumber,String pin){
+	public double getBalance(int accountNumber){
+		System.out.println(accountNumber);
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)){ 
-				return account.getBalance(pin);
+			System.out.println(account.getAccountNumber());
+			System.out.println(account.getBalance());
+			if(account.getAccountNumber() == accountNumber){ 
+				return account.getBalance();
 			}
 		}
-	return 0.0;
+	return 10.5;
 	}
 	
 	public void transfer(int senderAccountNumber, int receiverAccountNumber, double amount, String pin){

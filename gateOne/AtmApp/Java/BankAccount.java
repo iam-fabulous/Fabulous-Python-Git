@@ -39,11 +39,12 @@ public class BankAccount{
 		if(depositAmount > 0.0){
 			balance += depositAmount;
 		}
+		System.out.println(balance);
 	}
 
-	public double getBalance(String pin){
-		if(pin == this.pin)return balance; 
-		return 0.0;
+	public double getBalance(){
+		
+		return balance;
 	}
 
 	public void withdraw( double withdrawAmount){

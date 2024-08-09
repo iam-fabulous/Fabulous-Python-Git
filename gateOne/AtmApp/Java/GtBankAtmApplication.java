@@ -20,12 +20,13 @@ public class GtBankAtmApplication{
 	System.out.println("Enter 4 to Check Account Balance");
 	System.out.println("Enter 5 to Transfer Money");
 	System.out.println("Enter 6 to Change Pin");
-	System.out.println("Enter 99 to Cancel");
+	System.out.println("Enter 0 to Cancel");
 	boolean Flag = false;
+	boolean exit = false;
 	String pin = " ";
 	String deposit = " ";
 	int transaction = input.nextInt();
-	while(transaction != 99){
+	while(!exit){
 		switch(transaction){
 			case 1: 
 				System.out.print("Enter your First_name:  ");
@@ -105,7 +106,7 @@ public class GtBankAtmApplication{
 				int acctNumberBalance = input.nextInt();
 				System.out.print("Enter your pin: ");
 				String withdrawPinBalance = input.next();
-				double balance = bank.getBalance(acctNumberBalance, withdrawPinBalance);
+				double balance = bank.getBalance(acctNumberBalance);
 				System.out.println("======================================");
 				System.out.printf("%s$%5.2f%n", "your balance is: ", balance);
 				System.out.println("======================================");
@@ -143,11 +144,12 @@ public class GtBankAtmApplication{
 				newMain();
 
 			break;
-			case 99:
-				System.out.print("Are you sure want to Exit?...Enter 1 for 'yes' or 2 for 'no'");
+			case 0:
+				System.out.print("Are you sure want to Exit?...Enter 1 for 'yes' or 2 for 'no': ");
 				String check = input.next();
-					if(check == "1")transaction = 99;
+					if(check == "1"){exit = true; break;}
 					else newMain();
+				break;
 				
 			default:
 				newMain();
@@ -155,7 +157,7 @@ public class GtBankAtmApplication{
 
 
 			}//switch_case
-
+		//System.exit;
 		}//Main While
 
 
