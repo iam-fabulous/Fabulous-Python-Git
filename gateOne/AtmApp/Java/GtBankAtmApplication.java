@@ -39,18 +39,12 @@ public class GtBankAtmApplication{
 				while(!Flag){//second while_loop
 				pin = input.next();
 					if(pin.length() == 4){
-						
                                			Flag=true;
 						bank.createAccount(firstName +" "+ lastName, pin);
-						
-								
-											
-			
 					}//close the pin if statement
             				else{
 						System.out.println("Invalid Input! must be four digits only!!!");
 						System.out.print("Enter a four digit Pin:  ");
-            					
             				}//close the pin else
 				System.out.print("Do you want to Exit?...Enter 0 for 'yes' or 1 for 'no': ");
 				transaction = input.nextInt();
