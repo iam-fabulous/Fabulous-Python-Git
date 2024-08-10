@@ -11,6 +11,7 @@ public class Bank{
 	public BankAccount createAccount(String name, String pin){
 		BankAccount account  = new BankAccount(name,pin);
 		int accountNumber = generateAccountNumber();
+		
 		account.setAccountNumber(accountNumber);
 		accounts.add(account);
 		System.out.println("=============================================");
@@ -24,11 +25,21 @@ public class Bank{
 		System.out.printf("%10s%n", "Thanks for choosing Guarantee Trust Bank!");
 		System.out.printf("%s%n%n", "=============================================");
 		return account;
+		
+		
 	}
 
 	public void deposit(int accountNumber, double amount){
+			if(amount < 0){
+				System.out.println("Invalid Input");
+			}
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == accountNumber) account.deposit(amount);
+			if(account.getAccountNumber() == accountNumber){
+				account.deposit(amount);
+			}
+			else{
+			System.out.println("invalid account number!");
+			}
 		}
 	}
 
@@ -40,15 +51,12 @@ public class Bank{
 		
 
 	public double getBalance(int accountNumber){
-		System.out.println(accountNumber);
 		for(BankAccount account: accounts){
-			System.out.println(account.getAccountNumber());
-			System.out.println(account.getBalance());
 			if(account.getAccountNumber() == accountNumber){ 
 				return account.getBalance();
 			}
 		}
-	return 10.5;
+	return 0.0;
 	}
 	
 	public void transfer(int senderAccountNumber, int receiverAccountNumber, double amount, String pin){
@@ -59,7 +67,7 @@ public class Bank{
 	}
 	private int generateAccountNumber(){
 		Random generate = new Random();
-		int accountNumber = generate.nextInt(100);
+		int accountNumber = generate.nextInt(1000000);
 	return accountNumber;
 	}
 
