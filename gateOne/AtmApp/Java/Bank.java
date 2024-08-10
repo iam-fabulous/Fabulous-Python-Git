@@ -11,7 +11,6 @@ public class Bank{
 	public BankAccount createAccount(String name, String pin){
 		BankAccount account  = new BankAccount(name,pin);
 		int accountNumber = generateAccountNumber();
-		
 		account.setAccountNumber(accountNumber);
 		accounts.add(account);
 		System.out.println("=============================================");
