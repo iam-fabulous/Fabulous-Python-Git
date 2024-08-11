@@ -44,7 +44,8 @@ public class Bank{
 
 	public void withdraw(int accountNumber, double amount,String pin){
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)) account.withdraw(amount);
+			if(account.getAccountNumber() == accountNumber && account.getPin().equals(pin)) 
+			account.withdraw(amount);
 		}
 	}
 		
@@ -60,8 +61,10 @@ public class Bank{
 	
 	public void transfer(int senderAccountNumber, int receiverAccountNumber, double amount, String pin){
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == senderAccountNumber && account.getPin().equals(pin)) account.withdraw(amount);
-			if(account.getAccountNumber() == receiverAccountNumber) account.deposit(amount);
+			if(account.getAccountNumber() == senderAccountNumber && account.getPin().equals(pin)) 
+				account.withdraw(amount);
+			if(account.getAccountNumber() == receiverAccountNumber) 
+				account.deposit(amount);
 		}		
 	}
 	private int generateAccountNumber(){
@@ -72,7 +75,8 @@ public class Bank{
 
 	public void changePin(int accountNumber, String oldPin, String newPin){
 		for(BankAccount account: accounts){
-			if(account.getAccountNumber() == accountNumber && account.getPin().equals(oldPin)) account.setPin(newPin);
+			if(account.getAccountNumber() == accountNumber && account.getPin().equals(oldPin)) 
+				account.setPin(newPin);
 		}
 	}
 
